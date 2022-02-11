@@ -1,2 +1,2 @@
-web:./bin/www npm start
-web:node --optimize_for_size --max_old_space_size=920 
+worker:./bin/www npm start
+worker:node --optimize_for_size --max_old_space_size=920 
