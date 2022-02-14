@@ -16,4 +16,4 @@ app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/prompt-gen/'}),
 );
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT, '0.0.0.0')
