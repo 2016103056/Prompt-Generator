@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
 
-    "start": "node server.js",
+    "start": "npm run server",
     "build": "ng build --prod",
   
     "watch": "ng build --watch --configuration development",
