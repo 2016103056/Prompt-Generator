@@ -1,2 +1,2 @@
 web: npm run server
-web: mg serve
+web: ng serve
