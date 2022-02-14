@@ -1,21 +1,26 @@
-function requireHTTPS(req, res, next) {
-    // The 'x-forwarded-proto' check is for Heroku
-    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
-        return res.redirect('https://' + req.get('host') + req.url);
-    }
-    next();
-}
+'use strict';
 
 const express = require('express');
-const app = express();
+const { Server } = require('ws');
 
-app.use(requireHTTPS);
-app.use(express.static('./dist/prompt-gen'));
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
 
-app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/prompt-gen/'}),
-);
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-app.listen(process.env.PORT, '0.0.0.0')
+const wss = new Server({ server });
+
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  ws.on('close', () => console.log('Client disconnected'));
+});
+
+setInterval(() => {
+  wss.clients.forEach((client) => {
+    client.send(new Date().toTimeString());
+  });
+}, 1000);
 
 
