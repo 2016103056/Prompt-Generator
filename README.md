@@ -12,7 +12,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run 'npm run server' 
 
-Run 'np serve--open'
+Run 'ng serve--open'
 
 
 Future updates : More prompts. Better design.
