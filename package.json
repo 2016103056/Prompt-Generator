@@ -10,7 +10,8 @@
     "ng": "ng",
     "start": "ng serve",
     "postinstall": "npm run build",
-    "build": "ng build --prod",
+   
+    "heroku-postbuild": "ng build --prod"
     "watch": "ng build --watch --configuration development",
     "test": "ng test", 
     "server": "json-server --watch ./server/prompts.json"
