@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "postinstall": "npm run build",
+    
    
     "heroku-postbuild": "ng build --prod"
     "watch": "ng build --watch --configuration development",
